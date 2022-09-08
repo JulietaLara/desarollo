@@ -21,6 +21,7 @@ export const GifGrid = ({category}) => {
 
     return (
         <>
+         <GifItem newFunction={newFunction} /> 
         <h3> { category }  </h3>
         <p> Hello World</p>
         <button onClick={() => newFunction()}> Bim barabum mr.worldwide </button>
