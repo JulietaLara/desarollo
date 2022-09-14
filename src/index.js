@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import FirstApp from './FirstApp'
 import {ComponentApp} from './components/ComponentApp'
+import { Father } from './components/Father';
 // import reportWebVitals from './reportWebVitals';
 
 
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <App />
     <FirstApp value={1} />
     <ComponentApp />
+    <Father/>
   </>
     
 );

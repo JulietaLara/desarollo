@@ -69,7 +69,7 @@ const FirstApp = ({value}) => {
     <>
     <h1> Counter </h1>
     <span> { counter } </span>
-    <button onClick={() => handleAdd(3)}> +1  </button>
+    <button onClick={() => handleAdd(3)}> +1  </button> 
     <button onClick={() => handleSubstract()}> -1  </button>
     <button onClick={() => handleReset()}> Reset  </button>
     </>

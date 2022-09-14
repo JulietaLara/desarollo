@@ -9,11 +9,7 @@ export const AddCategory = ({onAddCategory}) => { { /* al ser enviado con un pro
     const onSetCategory = (event) => {
         setCat(event.target.value)
     }
-
    
-    
-    
-    
     return (
     <>
     
