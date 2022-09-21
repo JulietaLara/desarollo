@@ -1,10 +1,12 @@
 import './App.css'
+import { MainApp } from './components/MainApp'
 
 const App = () => {
   return (
   <> 
-  <h1> Hola mundo </h1>
-  <h2> Bienvenido  </h2> 
+  <h1> Hola Terricola </h1>
+  <h2> Bienvenide  </h2> 
+  <MainApp />
   </>
   )
 }
