@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from './CreateContext'
 
 export  const LoginPage = () => {
+
+  const { user, setUser} = useContext(UserContext);
+
   return (
     <>
-    <h1>Login Page</h1>
+    <div>Login Page</div>
+    <pre>
+      {JSON.stringify(user, null, 3)}
+    </pre>
     </>
   )
 }

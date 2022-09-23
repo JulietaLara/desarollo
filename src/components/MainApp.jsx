@@ -5,10 +5,11 @@ import { HomePage } from './HomePage'
 import { LoginPage } from './LoginPage'
 import { NavComponent } from './NavComponent'
 import { NotFoundPAge} from './NotFoundPage'
+import { UserProvider } from './CreateProvider'
 
 export  const MainApp = () => {
   return (
-    <>
+    <UserProvider>
         <h1>Main App</h1>
         <hr/>
 
@@ -27,6 +28,7 @@ export  const MainApp = () => {
         {/* <Route path="/*" element={ <NotFoundPage/> } />  Para redirigirlo al error 404 
         </Routes> */}
         <NavComponent/>
-    </>
+
+    </UserProvider>
   )
 }
