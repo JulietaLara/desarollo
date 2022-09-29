@@ -11,6 +11,16 @@ export  const LoginPage = () => {
     <pre>
       {JSON.stringify(user, null, 3)}
     </pre>
+    <button
+      className='btn btn-primary'
+      onClick={
+        () => {
+          setUser( { id: 313, name: 'Juli Lara', email: 'julietalarar98@gmail.com'})
+        }
+      }
+    >
+      Login
+    </button>
     </>
   )
 }
