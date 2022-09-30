@@ -6,6 +6,7 @@ import { LoginPage } from './LoginPage'
 import { NavComponent } from './NavComponent'
 import { NotFoundPAge} from './NotFoundPage'
 import { UserProvider } from './CreateProvider'
+import AppRoutes from './AppRoutes'
 
 export  const MainApp = () => {
   return (
@@ -27,7 +28,7 @@ export  const MainApp = () => {
         <Route path="/*" element={ <Navigate to="/about"/>} />
         {/* <Route path="/*" element={ <NotFoundPage/> } />  Para redirigirlo al error 404 
         </Routes> */}
-        <NavComponent/>
+        <AppRoutes/>
 
     </UserProvider>
   )

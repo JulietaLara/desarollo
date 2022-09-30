@@ -7,14 +7,22 @@ export const ProductsPage = () => {
     const [ params ] = useSearchParams()
 
     const navigate = useNavigate() 
-    useEffect(() => {
-        navigate('/login')
+
+    // useEffect(() => {
+    //     navigate('/login')
         
-    }, [])
+    // }, [])
+
+    const onLogOut = () => {
+        navigate('/login', {
+            replace: true
+        })
+    }
 
     return (
         <div>
-            Products Page { id } { paramas.get('sort') }
+            Products Page { id || 1 } { params.get('sort') }
+            <button onClick={ () => onLogOut()}>Logout</button>
         </div>
     );
 }
