@@ -13,9 +13,9 @@ export default function AppRoutes() {
     <Routes>
         <Route path="login" element={ <LoginPage/> } />
         <Route path="/*" element={ 
-            <PrivateRoutes>
+            //<PrivateRoutes>
                 <UserRoutes/>
-            </PrivateRoutes>
+           // </PrivateRoutes>
         } />
 
     </Routes>

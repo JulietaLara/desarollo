@@ -11,7 +11,7 @@ import AppRoutes from './AppRoutes'
 export  const MainApp = () => {
   return (
     <UserProvider>
-        <h1>Main App</h1>
+        <h3>Menú</h3>
         <hr/>
 
         {/* <Link to="/"> Home </Link>
