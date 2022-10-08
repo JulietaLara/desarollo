@@ -8,11 +8,14 @@ import { curryGetDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddl
 
 
 export const store = configureStore({
+    // reducer: {
+    //     
+    //     counter: counterSlice.reducer,
+    //     pokemons: pokemonSlice.reducer,
+    //     [todosApi.reducerPath]: todosApi.reducer, 
+    // },
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat( todosApi.middleware )
     reducer: {
-        // auth: authSlice.reducer 
-        counter: counterSlice.reducer,
-        pokemons: pokemonSlice.reducer,
-        [todosApi.reducerPath]: todosApi.reducer, 
-    },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat( todosApi.middleware )
-})
+        auth: authSlice.reducer 
+    }, 
+}) 
