@@ -12,16 +12,16 @@ export default function AppRoutes() {
   return (
     <>
     <AuthContextProvider>
-    <Routes>
-        <Route path="login" element={ <LoginPage/> } />
-        <Route path="Registro" element={ <Registro/> } />
-        <Route path="/*" element={ 
-            //<PrivateRoutes>
-                <UserRoutes/>
-           // </PrivateRoutes>
-        } />
+      <Routes>
+          <Route path="login" element={ <LoginPage/> } />
+          <Route path="Registro" element={ <Registro/> } />
+          <Route path="/*" element={ 
+              //<PrivateRoutes>
+                  <UserRoutes/>
+            // </PrivateRoutes>
+          } />
 
-    </Routes>
+      </Routes>
     </AuthContextProvider>
     </>
   )

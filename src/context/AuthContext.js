@@ -25,6 +25,10 @@ export const AuthContextProvider = ({children}) => {
         signInWithPopup(auth, provider)
     }
 
+    const signIn = (email,password) =>{
+        return signInWithEmailAndPassword(auth,email,password)
+    };
+
     const logOut = () => {
         signOut(auth)
     }
@@ -40,7 +44,7 @@ export const AuthContextProvider = ({children}) => {
     },[])
 
     return(
-        <UserContext.Provider value={{createUser}} >
+        <UserContext.Provider value={{createUser, signIn}} >
             {children}
         </UserContext.Provider>,
         
@@ -52,7 +56,7 @@ export const AuthContextProvider = ({children}) => {
 
 }
 
-export const UserAuth = () => {
+export const UserAuth=() =>{
     return useContext(UserContext)
 }
 export const UserAuthG=() => {

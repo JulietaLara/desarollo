@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { UseForm } from "../hooks/useForm";
 import { registerAuth, RegisterAuth } from "../store/slices/auth/Thunks"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { async } from "@firebase/util";
 import { UserAuth } from "../context/AuthContext";
@@ -34,12 +34,14 @@ export const Registro = () => {
     const [error, setError] = useState('')
 
     const {createUser} = UserAuth();
+    const navigate= useNavigate();
 
     const handleSubmit = async(e) => {
         e.preventDefault()
         setError('')
         try {
             await createUser(email, password) 
+            navigate('about')
         } catch (e) {
             setError(e.message)
             console.log(e.message)
