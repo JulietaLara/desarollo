@@ -7,10 +7,13 @@ import { NavComponent } from './NavComponent'
 import { NotFoundPAge} from './NotFoundPage'
 import { UserProvider } from './CreateProvider'
 import AppRoutes from './AppRoutes'
+import { AuthContextProvider } from '../context/AuthContext'
 
 export  const MainApp = () => {
   return (
-    <UserProvider>
+    // <UserProvider>
+    <AuthContextProvider>
+    
         <h3>Menú</h3>
         <hr/>
 
@@ -29,7 +32,7 @@ export  const MainApp = () => {
         {/* <Route path="/*" element={ <NotFoundPage/> } />  Para redirigirlo al error 404 
         </Routes> */}
         <AppRoutes/>
-
-    </UserProvider>
+    </AuthContextProvider>
+   //</UserProvider>
   )
 }

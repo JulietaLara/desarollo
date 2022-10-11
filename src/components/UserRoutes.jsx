@@ -3,18 +3,37 @@ import {Link, Navigate, Route, Routes, NavLink } from 'react-router-dom'
 import { AboutPage } from './AboutPage'
 import { ProductsPage } from './ProductsPage'
 import { SearchPage } from './SearchPage'
+import { Registro } from './Registro'
+import { UserAuth } from '../context/AuthContext'
+import { UserAuthG } from '../context/AuthContext'
+import { async } from '@firebase/util'
 
 export  const UserRoutes = () => {
+  const {user, logOut} = UserAuthG()
+  const handleSignOut = async () => {
+    try {
+      await logOut()
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="navbar navbar-expand-lg bg-light">
-            <div class="navbar-nav" > 
+    <nav className="navbar navbar-expand-lg bg-light">
+        <div className="navbar navbar-expand-lg bg-light">
+            <div className="navbar-nav" > 
                 <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="/"> Index </NavLink> 
                 <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="about"> About </NavLink>              
                 <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="products"> Products </NavLink>
                 <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="search"> Search </NavLink>
-                <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="login"> Login </NavLink>
+                
+                
+                {user?.displayName ? <button onClick={handleSignOut}>Cerrar sesión</button> : 
+                <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="login"> Login </NavLink> 
+                
+                }
+                {user?.displayName? <></> : 
+                <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="Registro"> Registrarse </NavLink>}
                 
 
             </div>

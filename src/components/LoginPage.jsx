@@ -1,6 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { UserContext } from './CreateContext'
 import { Navigate, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import GoogleButton from 'react-google-button';
+import { UserAuth, UserAuthG } from '../context/AuthContext';
+import { async } from '@firebase/util';
 
 export  const LoginPage = () => {
 
@@ -20,7 +24,22 @@ export  const LoginPage = () => {
   //   })
   // }
 
-  
+  const {googleSignIn, user} = UserAuthG()
+  const navigate = useNavigate();
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn() 
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    if(user != null) {
+      navigate('about')
+    }
+  },[user])
 
   return (
     <>
@@ -36,7 +55,27 @@ export  const LoginPage = () => {
     </button> */}
     <div>
        <h1>Inicie sesión</h1>
-       <p>¿No tiene cuenta terrícola? regístrese</p>
+       <form>
+        <div>
+            <label>Correo electrónico:</label>
+            <br />
+            <input type="email"  />
+        </div>
+        <div>
+            <label>Contraseña:</label>
+            <br />
+            <input type="password"  />
+        </div>
+        <br />
+        <button>Iniciar sesión</button>
+        <br />
+        <GoogleButton 
+         onClick={handleGoogleSignIn}
+        />
+    </form>
+       <p>
+        ¿No tiene cuenta, terrícola? <Link to='/Registro' className='underline'> regístrese</Link>
+       </p>
     </div>
     </>
   )

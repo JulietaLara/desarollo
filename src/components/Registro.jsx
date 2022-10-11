@@ -2,6 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { UseForm } from "../hooks/useForm";
 import { registerAuth, RegisterAuth } from "../store/slices/auth/Thunks"
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { async } from "@firebase/util";
+import { UserAuth } from "../context/AuthContext";
 
 export const Registro = () => {
     // const dispatch = useDispatch()
@@ -25,6 +29,23 @@ export const Registro = () => {
     //     })
     // }, [])
 
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
+
+    const {createUser} = UserAuth();
+
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+        setError('')
+        try {
+            await createUser(email, password) 
+        } catch (e) {
+            setError(e.message)
+            console.log(e.message)
+        }
+    }
+
     return (
         <>
             {/* <h1>Registro</h1>
@@ -37,8 +58,23 @@ export const Registro = () => {
             </form> */}
             <div>
        <h1>Registrese terrícola</h1>
-       <p>¿Ya tiene cuenta ? ¿Qué hace acá? Inicie sesión</p>
+      
     </div>
+    <form onSubmit={handleSubmit}>
+        <div>
+            <label>Correo electrónico:</label>
+            <br />
+            <input onChange={(e) => setEmail(e.target.value)} type="email"  />
+        </div>
+        <div>
+            <label>Contraseña:</label>
+            <br />
+            <input  onChange={(e) => setPassword(e.target.value)} type="password"  />
+        </div>
+        <br />
+        <button>Registrarse</button>
+    </form>
+    <p>¿Ya tiene cuenta ? ¿Qué hace acá? <Link to='login'className="underline">Inicie sesión</Link></p>
         </>
     )
 }
