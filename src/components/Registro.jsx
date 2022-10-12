@@ -5,7 +5,7 @@ import { registerAuth, RegisterAuth } from "../store/slices/auth/Thunks"
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { async } from "@firebase/util";
-import { UserAuth } from "../context/AuthContext";
+import { UserAuth2 } from '../context/AuthContextC';
 
 export const Registro = () => {
     // const dispatch = useDispatch()
@@ -33,7 +33,7 @@ export const Registro = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
-    const {createUser} = UserAuth();
+    const {createUser} = UserAuth2();
     const navigate= useNavigate();
 
     const handleSubmit = async(e) => {
@@ -47,6 +47,11 @@ export const Registro = () => {
             console.log(e.message)
         }
     }
+    useEffect(() => {
+        if(user != null) {
+          navigate('about')
+        }
+      },[user])
 
     return (
         <>

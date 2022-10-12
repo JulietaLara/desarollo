@@ -7,7 +7,7 @@ import { NavComponent } from './NavComponent'
 import { NotFoundPAge} from './NotFoundPage'
 import { UserProvider } from './CreateProvider'
 import AppRoutes from './AppRoutes'
-import { AuthContextProvider } from '../context/AuthContext'
+import { AuthContextProvider } from '../context/AuthContextG'
 
 export  const MainApp = () => {
   return (

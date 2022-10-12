@@ -3,7 +3,8 @@ import { UserContext } from './CreateContext'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import GoogleButton from 'react-google-button';
-import { UserAuth, UserAuthG } from '../context/AuthContext';
+import {  UserAuthG } from '../context/AuthContextG';
+import { UserAuth2 } from '../context/AuthContextC';
 import { async } from '@firebase/util';
 
 export  const LoginPage = () => {

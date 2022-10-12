@@ -4,8 +4,8 @@ import { AboutPage } from './AboutPage'
 import { ProductsPage } from './ProductsPage'
 import { SearchPage } from './SearchPage'
 import { Registro } from './Registro'
-import { UserAuth } from '../context/AuthContext'
-import { UserAuthG } from '../context/AuthContext'
+import { UserAuth } from '../context/AuthContextG'
+import { UserAuthG } from '../context/AuthContextG'
 import { async } from '@firebase/util'
 
 export  const UserRoutes = () => {
