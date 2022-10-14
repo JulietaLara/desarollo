@@ -49,7 +49,7 @@ export const Registro = () => {
     }
     useEffect(() => {
         if(user != null) {
-          navigate('about')
+          navigate('/about')
         }
       },[user])
 

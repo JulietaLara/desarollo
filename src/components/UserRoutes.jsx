@@ -7,6 +7,7 @@ import { Registro } from './Registro'
 import { UserAuth } from '../context/AuthContextG'
 import { UserAuthG } from '../context/AuthContextG'
 import { async } from '@firebase/util'
+import { Upload } from './Upload'
 
 export  const UserRoutes = () => {
   const {user, logOut} = UserAuthG()
@@ -26,6 +27,7 @@ export  const UserRoutes = () => {
                 <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="about"> About </NavLink>              
                 <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="products"> Products </NavLink>
                 <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="search"> Search </NavLink>
+                <NavLink className={ (args) => `nav-link ${ args.isActive? 'active' : '' } ` } to="Upload"> Upload </NavLink>
                 
                 
                 {user?.displayName ? <button onClick={handleSignOut}>Cerrar sesión</button> : 
@@ -43,6 +45,7 @@ export  const UserRoutes = () => {
         <Route path="products" element={ <ProductsPage/> } />
         <Route path="about" element={ <AboutPage/> } />
         <Route path="search" element={ <SearchPage/> } />
+        <Route path="Upload" element={ <Upload/> } />
      </Routes>
     </>
   )

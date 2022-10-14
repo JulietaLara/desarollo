@@ -14,6 +14,8 @@ export const AuthContextProvider2=({children})=>{
         return signInWithEmailAndPassword(auth,email,password)
     };
 
+
+
     return(
         <UserContext.Provider value={{createUser, signIn }} >
              {children}
